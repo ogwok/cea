@@ -4,6 +4,7 @@ import { buttonVariants } from '@/components/ui/Button'
 import { getAuthSession } from '@/lib/auth'
 import { db } from '@/lib/db'
 import { format } from 'date-fns'
+import { User } from 'lucide-react'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -60,6 +61,19 @@ const Layout = async ({
     },
   })
 
+  const members = await db.subscription.findMany({
+    where: {
+      subreddit: {
+        name: slug,
+      },
+    },
+    include: {
+      user: true,
+    },
+  })
+
+  console.log("===members", members);
+
   return (
     <div className='sm:container max-w-7xl mx-auto h-full pt-12'>
       <div>
@@ -88,6 +102,15 @@ const Layout = async ({
                   <div className='text-gray-900'>{memberCount}</div>
                 </dd>
               </div>
+              
+              {
+                members.map((member) => (
+                  <div className='flex justify-between gap-x-4 py-3'>
+                  <dt className='text-gray-500'>{member.user.name}</dt>
+                </div>
+                ))
+              }
+
               {subreddit.creatorId === session?.user?.id ? (
                 <div className='flex justify-between gap-x-4 py-3'>
                   <dt className='text-gray-500'>You created this community</dt>

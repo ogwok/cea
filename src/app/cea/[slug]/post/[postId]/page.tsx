@@ -51,8 +51,6 @@ const SubRedditPostPage = async ({ params }: SubRedditPostPageProps) => {
 
   if (!post && !cachedPost) return notFound()
 
-    console.log("=====post=====>", post);
-
   return (
     <div>
       <div className='h-full flex flex-col sm:flex-row items-center sm:items-start justify-between'>
