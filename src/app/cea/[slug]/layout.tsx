@@ -102,10 +102,10 @@ const Layout = async ({
                   <div className='text-gray-900'>{memberCount}</div>
                 </dd>
               </div>
-              
+
               {
                 members.map((member) => (
-                  <div className='flex justify-between gap-x-4 py-3'>
+                  <div key={member.userId} className='flex justify-between gap-x-4 py-3'>
                   <dt className='text-gray-500'>{member.user.name}</dt>
                 </div>
                 ))
