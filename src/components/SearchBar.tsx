@@ -84,13 +84,13 @@ const SearchBar: FC<SearchBarProps> = ({}) => {
               {queryResults?.map((subreddit) => (
                 <CommandItem
                   onSelect={(e) => {
-                    router.push(`/r/${e}`)
+                    router.push(`/cea/${e}`)
                     router.refresh()
                   }}
                   key={subreddit.id}
                   value={subreddit.name}>
                   <Users className='mr-2 h-4 w-4' />
-                  <a href={`/r/${subreddit.name}`}>cea/{subreddit.name}</a>
+                  <a href={`/cea/${subreddit.name}`}>cea/{subreddit.name}</a>
                 </CommandItem>
               ))}
             </CommandGroup>

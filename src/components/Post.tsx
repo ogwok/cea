@@ -45,7 +45,7 @@ const Post: FC<PostProps> = ({
               <>
                 <a
                   className='underline text-zinc-900 text-sm underline-offset-2'
-                  href={`/r/${subredditName}`}>
+                  href={`/cea/${subredditName}`}>
                   cea/{subredditName}
                 </a>
                 <span className='px-1'>•</span>
@@ -54,7 +54,7 @@ const Post: FC<PostProps> = ({
             <span>Posted by cea/{post.author.name}</span>{' '}
             {formatTimeToNow(new Date(post.createdAt))}
           </div>
-          <a href={`/r/${subredditName}/post/${post.id}`}>
+          <a href={`/cea/${subredditName}/post/${post.id}`}>
             <h1 className='text-lg font-semibold py-2 leading-6 text-gray-900'>
               {post.title}
             </h1>
@@ -74,7 +74,7 @@ const Post: FC<PostProps> = ({
 
       <div className='bg-gray-50 z-20 text-sm px-4 py-4 sm:px-6'>
         <Link
-          href={`/r/${subredditName}/post/${post.id}`}
+          href={`/cea/${subredditName}/post/${post.id}`}
           className='w-fit flex items-center gap-2'>
           <MessageSquare className='h-4 w-4' /> {commentAmt} comments
         </Link>
