@@ -72,7 +72,7 @@ const Layout = async ({
     },
   })
 
-  console.log("===members", members);
+ // console.log("===members", members);
 
   return (
     <div className='sm:container max-w-7xl mx-auto h-full pt-12'>

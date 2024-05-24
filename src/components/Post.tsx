@@ -46,12 +46,12 @@ const Post: FC<PostProps> = ({
                 <a
                   className='underline text-zinc-900 text-sm underline-offset-2'
                   href={`/cea/${subredditName}`}>
-                  cea/{subredditName}
+                  {subredditName}
                 </a>
                 <span className='px-1'>•</span>
               </>
             ) : null}
-            <span>Posted by cea/{post.author.name}</span>{' '}
+            <span>Posted by {post.author.name}</span>{' '}
             {formatTimeToNow(new Date(post.createdAt))}
           </div>
           <a href={`/cea/${subredditName}/post/${post.id}`}>
